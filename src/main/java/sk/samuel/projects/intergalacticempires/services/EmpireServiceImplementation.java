@@ -2,6 +2,7 @@ package sk.samuel.projects.intergalacticempires.services;
 
 import org.springframework.stereotype.Service;
 import sk.samuel.projects.intergalacticempires.entities.Empire;
+import sk.samuel.projects.intergalacticempires.exceptions.ResourceNotFoundException;
 import sk.samuel.projects.intergalacticempires.repositories.EmpireRepository;
 
 import java.util.List;
@@ -34,7 +35,13 @@ public class EmpireServiceImplementation implements EmpireService{
 
     @Override
     public Empire updateEmpire(Long id, Empire empire) {
-        return empireRepository.save(empire);
+        return empireRepository.findById(id)
+                .map(empire1 -> {
+                    empire1.setNameOfEmpire(empire.getNameOfEmpire());
+                    empire1.setNameOfLeader(empire.getNameOfLeader());
+                    empire1.setSpecies(empire.getSpecies());
+                    return empireRepository.save(empire1);
+                }).orElseThrow(() -> new ResourceNotFoundException("Empire", "id", id));
     }
 
     @Override
