@@ -5,25 +5,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Table(name = "empires")
 public class Empire {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name_of_empire")
     private String nameOfEmpire;
+    @Column(name = "name_of_leader")
     private String nameOfLeader;
-    private String creature;
-    private int numberOfPlanets;
-    private int totalPopulation;
+    @Column(name = "species")
+    private String species;
+    //private int numberOfPlanets;
+    //private int totalPopulation;
 
 
 }
