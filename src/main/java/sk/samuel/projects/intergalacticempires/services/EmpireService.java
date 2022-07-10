@@ -1,6 +1,5 @@
 package sk.samuel.projects.intergalacticempires.services;
 
-import org.hibernate.tool.schema.internal.StandardUniqueKeyExporter;
 import sk.samuel.projects.intergalacticempires.entities.Empire;
 
 import java.util.List;

@@ -38,8 +38,9 @@ public class EmpireController {
         return new ResponseEntity<Empire>(empireService.updateEmpire(id, empire), HttpStatus.OK);
     }
     @DeleteMapping("/{id}")
-    public void deleteEmpire(@PathVariable("id") Long id){
+    public String deleteEmpire(@PathVariable("id") Long id){
         empireService.deleteEmpire(id);
+        return "Empire was deleted";
     }
 
 

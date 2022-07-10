@@ -43,9 +43,12 @@ public class EmpireServiceImplementation implements EmpireService{
                     return empireRepository.save(empire1);
                 }).orElseThrow(() -> new ResourceNotFoundException("Empire with id: " + id + " was now found"));
     }
-
     @Override
     public void deleteEmpire(Long id) {
+
+
+
         empireRepository.deleteById(id);
+
     }
 }
