@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import sk.samuel.projects.intergalacticempires.entities.Species;
 import sk.samuel.projects.intergalacticempires.services.SpeciesService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -27,7 +28,7 @@ public class SpeciesController {
     }
     //create
     @PostMapping
-    public ResponseEntity<Species> createNewSpecies(@RequestBody Species species){
+    public ResponseEntity<Species> createNewSpecies(@RequestBody @Valid Species species){
         return new ResponseEntity<Species>(speciesService.saveSpecies(species), HttpStatus.CREATED);
     }
     //get by id
@@ -38,7 +39,7 @@ public class SpeciesController {
 
     //update by id
     @PutMapping("/{id}")
-    public ResponseEntity<Species> updateSpecies(@PathVariable("id") Long id, @RequestBody Species species){
+    public ResponseEntity<Species> updateSpecies(@PathVariable("id") Long id, @RequestBody @Valid Species species){
         return new ResponseEntity<Species>(speciesService.updateSpecies(id, species), HttpStatus.OK);
     }
 

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import sk.samuel.projects.intergalacticempires.entities.Empire;
 import sk.samuel.projects.intergalacticempires.services.EmpireService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -24,7 +25,7 @@ public class EmpireController {
         return empireService.getAllEmpires();
     }
     @PostMapping
-    public ResponseEntity<Empire> createNewEmpire(@RequestBody Empire empire){
+    public ResponseEntity<Empire> createNewEmpire(@RequestBody @Valid Empire empire){
         return new ResponseEntity<>(empireService.saveEmpire(empire), HttpStatus.CREATED);
     }
     @GetMapping("/{id}")
@@ -33,7 +34,7 @@ public class EmpireController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Empire> updateEmpire(@PathVariable("id") Long id, @RequestBody Empire empire){
+    public ResponseEntity<Empire> updateEmpire(@PathVariable("id") Long id, @RequestBody @Valid Empire empire){
         return new ResponseEntity<Empire>(empireService.updateEmpire(id, empire), HttpStatus.OK);
     }
     @DeleteMapping("/{id}")

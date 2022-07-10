@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import sk.samuel.projects.intergalacticempires.entities.Planet;
 import sk.samuel.projects.intergalacticempires.services.PlanetService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -34,14 +35,14 @@ public class PlanetController {
 
     //create planet
     @PostMapping
-    public ResponseEntity<Planet> addNewPlanet(@RequestBody Planet planet){
+    public ResponseEntity<Planet> addNewPlanet(@RequestBody @Valid Planet planet){
         return new ResponseEntity<>(planetService.savePlanet(planet), HttpStatus.CREATED);
     }
 
     // update planet
 
     @PutMapping("/{id}")
-    public ResponseEntity<Planet> updatePlanet(@PathVariable("id") Long id, @RequestBody Planet planet){
+    public ResponseEntity<Planet> updatePlanet(@PathVariable("id") Long id, @RequestBody @Valid Planet planet){
         return new ResponseEntity<Planet>(planetService.updatePlanet(id, planet), HttpStatus.OK);
     }
 

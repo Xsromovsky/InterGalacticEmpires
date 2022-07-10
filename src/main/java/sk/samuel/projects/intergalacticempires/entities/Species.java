@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -19,6 +20,7 @@ public class Species {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     @Column(name = "species")
+    @NotNull(message = "You need to specify the name")
     private String species;
     @Column(name = "totoal_population_of_species")
     private long totalPopulationOfSpecies;
