@@ -20,7 +20,7 @@ public class Planet {
     @Column(name = "name")
     private String name;
     @Column(name = "population")
-    private int population;
+    private long population;
     @Column(name = "total_species")
     private int totalSpecies;
     @Column(name = "minerals")
