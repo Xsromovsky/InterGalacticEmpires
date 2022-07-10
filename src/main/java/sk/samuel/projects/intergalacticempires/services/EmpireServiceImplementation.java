@@ -41,7 +41,7 @@ public class EmpireServiceImplementation implements EmpireService{
                     empire1.setNameOfLeader(empire.getNameOfLeader());
                     empire1.setSpecies(empire.getSpecies());
                     return empireRepository.save(empire1);
-                }).orElseThrow(() -> new ResourceNotFoundException("Empire", "id", id));
+                }).orElseThrow(() -> new ResourceNotFoundException("Empire with id: " + id + " was now found"));
     }
 
     @Override

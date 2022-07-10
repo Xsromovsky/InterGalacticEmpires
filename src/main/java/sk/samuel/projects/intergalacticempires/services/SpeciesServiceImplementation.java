@@ -40,7 +40,7 @@ public class SpeciesServiceImplementation implements SpeciesService{
                     species1.setSpecies(species.getSpecies());
                     species1.setTotalPopulationOfSpecies(species.getTotalPopulationOfSpecies());
                     return speciesRepository.save(species1);
-                }).orElseThrow(() -> new ResourceNotFoundException("Species", "id", id));
+                }).orElseThrow(() -> new ResourceNotFoundException("Species with id: " + id + " was not found"));
     }
     //delete
     @Override

@@ -44,7 +44,7 @@ public class PlanetServiceImplementation implements PlanetService{
                     planet1.setMinerals(planet.getMinerals());
                     planet1.setResearch(planet.getResearch());
                     return planetRepository.save(planet1);
-                }).orElseThrow(() -> new ResourceNotFoundException("Planet", "id", id));
+                }).orElseThrow(() -> new ResourceNotFoundException("Planet with id: " + id + " was not found"));
     }
 
     @Override

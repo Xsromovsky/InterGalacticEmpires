@@ -21,6 +21,6 @@ public class Species {
     @Column(name = "species")
     private String species;
     @Column(name = "totoal_population_of_species")
-    private int totalPopulationOfSpecies;
+    private long totalPopulationOfSpecies;
 
 }

@@ -22,13 +22,13 @@ public class Planet {
     @Column(name = "population")
     private long population;
     @Column(name = "total_species")
-    private int totalSpecies;
+    private long totalSpecies;
     @Column(name = "minerals")
-    private int minerals;
+    private long minerals;
     @Column(name = "energy")
-    private int energy;
+    private long energy;
     @Column(name = "research")
-    private int research;
+    private long research;
     @Column(name = "alloys")
-    private int alloys;
+    private long alloys;
 }
